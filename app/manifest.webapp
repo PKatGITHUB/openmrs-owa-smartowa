@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "smartOwa",
+  "description": "OWA for SMART apps support",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "s/openmrs-platform/owaPKatGITHUB",
+    "url": "s/openmrs-platform/owaPKatGITHUBhttps://github.com/s/openmrs-platform/owaPK"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}
