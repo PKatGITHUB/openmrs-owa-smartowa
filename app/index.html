@@ -1,11 +1,26 @@
 <!DOCTYPE html>
+<!--style type="text/css">
+  table {
+    width: 100%;
+  }
+
+  tr td {
+    word-wrap: break-word;
+  }
+
+  /*style="word-wrap:break-word"*/
+</style-->
 <html>
   <head>
     <title>smartOwa</title>
     <!-- openmrs favicon -->
     <link rel="shortcut icon" type="image/ico" href="../../images/openmrs-favicon.ico"/>
     <link rel="icon" type="image/png" href="../../images/openmrs-favicon.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+
   <body>
     <header>
       <div class="logo">
@@ -16,9 +31,81 @@
       <span class="app-title">smartOwa</span>
     </header>
     <div class="clear"></div>
-    <div id="body-wrapper">
-      <div class="instructions">Replace this with the content of your app.</div>
-    </div>
+    <div class="limiter">
+      <div class="container-table100">
+        <div class="wrap-table100">
+          <div class="table" id="smart_table">
+            <div class="row header">
+              <div class="cell">
+                Name
+              </div>
+              <div class="cell" >
+                Description
+              </div>
+              <div class="cell">
+                Action
+              </div>
+            </div>
+            <!--tbody>
+            <tr>
+              <th> Name</th>
+              <th> Description</th>
+              <th style="min-width: 180px;"> Action</th>
+            </tr>
+            </tbody-->
+            <script>
+                $(document).ready(function () {
+                    $.getJSON("/openmrs/ws/oauth/clientManagement", function (data) {
+                        var smart_data = '';
 
+                        $.each(data, function (key, value) {
+                            smart_data += '<div class="row">';
+                            smart_data += '<div class="cell" data-title="Name">' + value.name + '</div>';
+                            smart_data += '<div class="cell" data-title="Description">' + value.description + '</div>';
+                            smart_data += '<div class="cell" data-title="Action">' +
+                                '<form action="/openmrs/module/oauth2/runSmartApps/runSmart.form" method="post">' +
+                                '<button type="submit" name="run" value="' +
+                                value.smartId +
+                                '">' +
+                                'Start<img src="img/play.gif"/></button>' +
+                                '</form>' +
+                                '</div>';
+                            smart_data += '</div>';
+                        });
+                        $('#smart_table').append(smart_data);
+                    });
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
+
+
+
+<!--script>
+
+    $(document).ready(function () {
+        $.getJSON("/openmrs/ws/oauth/clientManagement", function (data) {
+            var smart_data = '';
+
+            $.each(data, function (key, value) {
+                smart_data += '<tr>';
+                smart_data += '<td>' + value.name + '</td>';
+                smart_data += '<td>' + value.description + '</td>';
+                smart_data += '<td align="center" valign="middle" style="vertical-align:middle;">' +
+                    '<form action="/openmrs/module/oauth2/runSmartApps/runSmart.form" method="post">' +
+                    '<button type="submit" style="width: 100px;" name="run" value="' +
+                    value.smartId +
+                    '">' +
+                    '<img src="img/play.gif"/>Start</button>' +
+                    '</form>' +
+                    '</td>';
+                smart_data += '</tr>';
+            });
+            $('#smart_table').append(smart_data);
+        });
+    });
+</script-->

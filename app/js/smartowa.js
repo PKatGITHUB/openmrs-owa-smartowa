@@ -15,3 +15,14 @@ import jquery from 'jquery';
     console.log('jQuery version: ' + jquery.fn.jquery);
   });
 }());
+
+
+(function ($) {
+    "use strict";
+
+
+
+
+})(jQuery);
+
+
