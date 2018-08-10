@@ -31,6 +31,19 @@
       <span class="app-title">smartOwa</span>
     </header>
     <div class="clear"></div>
+    <form id="mfForm" method="post" enctype="multipart/form-data"
+          action="/openmrs/module/oauth2/runSmartApps/registerMF.form">
+      <div class="container-manifest">
+        <h5>Register New SMART App by uploading Manifest File</h5>
+        <br>
+        <br>
+        <div class="wrap-table100">
+          Upload Manifest.mf File :
+          <input type="file" name="mfFile" form="mfForm"><br>
+          <button class="button" type="submit" name="mfFileBtn" form="mfForm"><img src="img/upload.png"/></button>
+        </div>
+      </div>
+    </form>
     <div class="limiter">
       <div class="container-table100">
         <div class="wrap-table100">
@@ -46,13 +59,6 @@
                 Action
               </div>
             </div>
-            <!--tbody>
-            <tr>
-              <th> Name</th>
-              <th> Description</th>
-              <th style="min-width: 180px;"> Action</th>
-            </tr>
-            </tbody-->
             <script>
                 $(document).ready(function () {
                     $.getJSON("/openmrs/ws/oauth/clientManagement", function (data) {
@@ -67,7 +73,7 @@
                                 '<button type="submit" name="run" value="' +
                                 value.smartId +
                                 '">' +
-                                'Start<img src="img/play.gif"/></button>' +
+                                '<img src="img/play.png"/></button>' +
                                 '</form>' +
                                 '</div>';
                             smart_data += '</div>';
@@ -78,34 +84,12 @@
             </script>
           </div>
         </div>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </body>
 </html>
 
 
-
-<!--script>
-
-    $(document).ready(function () {
-        $.getJSON("/openmrs/ws/oauth/clientManagement", function (data) {
-            var smart_data = '';
-
-            $.each(data, function (key, value) {
-                smart_data += '<tr>';
-                smart_data += '<td>' + value.name + '</td>';
-                smart_data += '<td>' + value.description + '</td>';
-                smart_data += '<td align="center" valign="middle" style="vertical-align:middle;">' +
-                    '<form action="/openmrs/module/oauth2/runSmartApps/runSmart.form" method="post">' +
-                    '<button type="submit" style="width: 100px;" name="run" value="' +
-                    value.smartId +
-                    '">' +
-                    '<img src="img/play.gif"/>Start</button>' +
-                    '</form>' +
-                    '</td>';
-                smart_data += '</tr>';
-            });
-            $('#smart_table').append(smart_data);
-        });
-    });
-</script-->
