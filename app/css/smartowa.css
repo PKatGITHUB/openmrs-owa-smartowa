@@ -145,6 +145,13 @@ button {
     outline: none !important;
     border: #363463;
     background: transparent;
+    display:inline-block;
+}
+
+input {
+    display:inline-block;
+    width: 200px;
+    align-content : center;
 }
 
 button:hover {
@@ -166,7 +173,7 @@ iframe {
 
 .container-manifest {
     width: 100%;
-    min-height: 12vh;
+    min-height: 8vh;
     background: #c4d3f6;
 
     display: -webkit-box;
@@ -177,12 +184,12 @@ iframe {
     align-items: left;
     justify-content: left;
     flex-wrap: wrap;
-    padding: 33px 30px;
+    padding: 10px 30px;
 }
 
 .container-table100 {
     width: 100%;
-    min-height: 100vh;
+    min-height: 8vh;
     background: #c4d3f6;
 
     display: -webkit-box;
@@ -193,12 +200,12 @@ iframe {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 33px 30px;
+    padding: 10px 10px;
 }
 
 .wrap-table100 {
     width: 960px;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
